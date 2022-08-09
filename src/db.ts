@@ -1,9 +1,15 @@
 export interface DbItem {
   // sketch out interface here
+  creationDate: string;
+  status: "done" | "in-progress";
+  task: string;
 }
 
 export interface DbItemWithId extends DbItem {
   id: number;
+  creationDate: string;
+  status: "done" | "in-progress";
+  task: string;
 }
 
 const db: DbItemWithId[] = [];
@@ -21,7 +27,9 @@ export const addDummyDbItems = (n: number): DbItemWithId[] => {
   const createdSignatures: DbItemWithId[] = [];
   for (let count = 0; count < n; count++) {
     const createdSignature = addDbItem({
-      // possibly add some generated data here
+      creationDate: "2022-08-09T08:43:00Z",
+      status: "done",
+      task: "have a coffee",
     });
     createdSignatures.push(createdSignature);
   }
